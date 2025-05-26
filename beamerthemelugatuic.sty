@@ -20,24 +20,29 @@
 
 \mode<presentation>
 
+% Default Supported Fonts:
+% - Adobe Source Sans Pro & Source Code Pro Monospace (Default)
+% - Fira Sans by Firefox (Option = fira) 
+% - Noto Sans by Google (Option = noto)
+% - Alegreya Sans (Option = alegreya)
+% If you want to use a custom font to this stylesheet, please note them below.
+
+% Set font as Fira Sans
 \newif\if@doFira
 \@doFirafalse
 \DeclareOptionBeamer{fira}{\@doFiratrue}
 \ProcessOptionsBeamer
 
+% Set font as Noto Sans
 \newif\if@doNoto
 \@doNotofalse
 \DeclareOptionBeamer{noto}{\@doNototrue}
 \ProcessOptionsBeamer
 
+% Set font as Alegreya Sans
 \newif\if@doAlegreya
 \@doAlegreyafalse
 \DeclareOptionBeamer{alegreya}{\@doAlegreyatrue}
-\ProcessOptionsBeamer
-
-\newif\if@doLmodern
-\@doLmodernfalse
-\DeclareOptionBeamer{lmodern}{\@doLmoderntrue}
 \ProcessOptionsBeamer
 
 \newif\if@doAcademicons
@@ -102,8 +107,6 @@
         \RequirePackage[sfdefault,vvarbb]{notomath}
         \RequirePackage[scale=\NotoText@scale]{noto-mono}
       \else
-        \if@doLmodern
-          \RequirePackage{lmodern}
         \else
           \if@doAlegreya
             \RequirePackage{AlegreyaSans}
