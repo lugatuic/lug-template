@@ -20,12 +20,14 @@
 
 \mode<presentation>
 
+% All these Fonts (should be) Open Source, so they're all acceptable!
 % Default Supported Fonts:
 % - Adobe Source Sans Pro & Source Code Pro Monospace (Default)
 % - Fira Sans by Firefox (Option = fira) 
 % - Noto Sans by Google (Option = noto)
 % - Alegreya Sans (Option = alegreya)
 % If you want to use a custom font to this stylesheet, please note them below.
+% Fonts added to this .sty file MUST be Open Source.
 
 % --- Option Declaration --- %
 
@@ -75,6 +77,9 @@
 
 % --- Option Declaration Over --- %
 
+% --- Font Selection --- %
+
+% If Fira Sans was chosen, use it!
 \if@doFira
   \RequirePackage{FiraSans}
   \setmonofont{Fira Mono}[ Numbers = {Monospaced},
@@ -87,6 +92,7 @@
   \renewcommand{\circ}{\mdsmwhtcircle}
   \renewcommand{\bullet}{\mdsmblkcircle}
 \else
+% XeLaTeX support from Seville
   \if@doXelatex
     \RequirePackage{fontspec}
     \setmainfont{Source Serif 4}
@@ -100,6 +106,7 @@
     \setmathfont[range=\mathit]  {Source Sans 3 Italic}
     \setoperatorfont\mathsf
   \else
+    % LuaLaTeX support from Seville
     \if@doLualatex
       \RequirePackage{fontspec}
       \setmainfont{Source Serif Pro}
@@ -113,33 +120,42 @@
       \setmathfont[range=\mathit]  {Source Sans Pro Italic}
       \setoperatorfont\mathsf
     \else
+      % If chosen font is NOT Fira Sans & you are not using XeLaTeX o LuaLaTeX
+
+      % Noto Sans 
       \if@doNoto
         \RequirePackage[sfdefault,vvarbb]{notomath}
         \RequirePackage[scale=\NotoText@scale]{noto-mono}
       \else
+        % Alegreya Sans
+        \if@doAlegreya
+          \RequirePackage{AlegreyaSans}
+          \RequirePackage{eulervm}
+          \RequirePackage{bbold}
+          \RequirePackage[T1]{fontenc}
+          \RequirePackage{textcomp}
+          \RequirePackage[scaled=.83]{beramono}
         \else
-          \if@doAlegreya
-            \RequirePackage{AlegreyaSans}
-            \RequirePackage{eulervm}
-            \RequirePackage{bbold}
-            \RequirePackage[T1]{fontenc}
-            \RequirePackage{textcomp}
-            \RequirePackage[scaled=.83]{beramono}
-          \else
-            \RequirePackage[default]{sourcesanspro}
-            \RequirePackage{sourcecodepro}
-            \RequirePackage{eulervm}
-            \RequirePackage[T1]{fontenc}
-          \fi
+          \RequirePackage[default]{sourcesanspro}
+          \RequirePackage{sourcecodepro}
+          \RequirePackage{eulervm}
+          \RequirePackage[T1]{fontenc}
         \fi
       \fi
     \fi
   \fi
 \fi
 
+% --- Font Selection Over --- %
+
+% --- Custom Icons --- %
+
+% See icon options here: https://jpswalsh.github.io/academicons/
+% Likely of note for LUG usage: ACM, StackOverflow, "closed-access", "open-access", piazza, overleaf
 \if@doAcademicons
   \RequirePackage{academicons}
 \fi
+% --- Custom Icons Over --- %
 
 \RequirePackage{fontawesome5}
 \if@doMaterial
