@@ -27,43 +27,53 @@
 % - Alegreya Sans (Option = alegreya)
 % If you want to use a custom font to this stylesheet, please note them below.
 
-% Set font as Fira Sans
+% --- Option Declaration --- %
+
+% Fira Sans
 \newif\if@doFira
 \@doFirafalse
 \DeclareOptionBeamer{fira}{\@doFiratrue}
 \ProcessOptionsBeamer
 
-% Set font as Noto Sans
+% Noto Sans
 \newif\if@doNoto
 \@doNotofalse
 \DeclareOptionBeamer{noto}{\@doNototrue}
 \ProcessOptionsBeamer
 
-% Set font as Alegreya Sans
+% Alegreya Sans
 \newif\if@doAlegreya
 \@doAlegreyafalse
 \DeclareOptionBeamer{alegreya}{\@doAlegreyatrue}
 \ProcessOptionsBeamer
 
+% Academicons
 \newif\if@doAcademicons
 \@doAcademiconsfalse
 \DeclareOptionBeamer{academicons}{\@doAcademiconstrue}
 \ProcessOptionsBeamer
 
+% TODO: Remove Material Support & Replace with alternative terminal colorscheme options
 \newif\if@doMaterial
 \@doMaterialfalse
 \DeclareOptionBeamer{material}{\@doMaterialtrue}
 \ProcessOptionsBeamer
 
+% LuaLaTeX Support
+% TODO: Verify this works
 \newif\if@doLualatex
 \@doLualatexfalse
 \DeclareOptionBeamer{lualatex}{\@doLualatextrue}
 \ProcessOptionsBeamer
 
+% XeLaTeX Support
+% TODO: Verify
 \newif\if@doXelatex
 \@doXelatexfalse
 \DeclareOptionBeamer{xelatex}{\@doXelatextrue}
 \ProcessOptionsBeamer
+
+% --- Option Declaration Over --- %
 
 \if@doFira
   \RequirePackage{FiraSans}
