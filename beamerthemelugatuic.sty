@@ -208,11 +208,14 @@
 % NOTE: that RGB values must be between 0 and 255.
 % NOTE: the second argument "{RGB}" MUST be capitalized. "{rgb}" takes arguments between 0 and 1 for some reason. 
 
+
+
 %  --- Custom Color Declaration End --- %
 
 \definecolor{TerminalBlack}{RGB}{33,33,33}
 \setbeamercolor{background canvas}{bg=TerminalBlack}
 
+% TODO: Handle Depreceated Material Theme
 \if@doMaterial
   \setbeamercolor{title}{fg=White}
   \setbeamercolor*{frametitle}{bg=BlueGrey900, fg=Amber50!85!Grey}
@@ -233,6 +236,7 @@
   \setbeamercolor{section number projected}{fg=BlueGrey300}
   \setbeamercolor{section in toc}{fg=White}
 \else
+  
   \setbeamercolor{title}{fg=red}
   \setbeamercolor*{frametitle}{bg=base02, fg=base2}
   \setbeamercolor*{normal text}{fg=base02, bg=base3}
