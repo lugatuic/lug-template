@@ -1,0 +1,393 @@
+% Lightly Modified Version of "Seville Theme" by Michael Khan
+% See below for original credits
+
+%% beamerthemeseville.sty
+%% Copyright 2022 F. Muro
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is F. Muro.
+%
+% This work consists of the file beamerthemeseville.sty.
+
+\mode<presentation>
+
+\newif\if@doFira
+\@doFirafalse
+\DeclareOptionBeamer{fira}{\@doFiratrue}
+\ProcessOptionsBeamer
+
+\newif\if@doNoto
+\@doNotofalse
+\DeclareOptionBeamer{noto}{\@doNototrue}
+\ProcessOptionsBeamer
+
+\newif\if@doAlegreya
+\@doAlegreyafalse
+\DeclareOptionBeamer{alegreya}{\@doAlegreyatrue}
+\ProcessOptionsBeamer
+
+\newif\if@doLmodern
+\@doLmodernfalse
+\DeclareOptionBeamer{lmodern}{\@doLmoderntrue}
+\ProcessOptionsBeamer
+
+\newif\if@doAcademicons
+\@doAcademiconsfalse
+\DeclareOptionBeamer{academicons}{\@doAcademiconstrue}
+\ProcessOptionsBeamer
+
+\newif\if@doMaterial
+\@doMaterialfalse
+\DeclareOptionBeamer{material}{\@doMaterialtrue}
+\ProcessOptionsBeamer
+
+\newif\if@doLualatex
+\@doLualatexfalse
+\DeclareOptionBeamer{lualatex}{\@doLualatextrue}
+\ProcessOptionsBeamer
+
+\newif\if@doXelatex
+\@doXelatexfalse
+\DeclareOptionBeamer{xelatex}{\@doXelatextrue}
+\ProcessOptionsBeamer
+
+\if@doFira
+  \RequirePackage{FiraSans}
+  \setmonofont{Fira Mono}[ Numbers = {Monospaced},
+    Scale=MatchUppercase]
+  \RequirePackage[fakebold]{firamath-otf}
+  \unimathsetup{mathrm=sym}
+  \setmathfont{Euler Math}[range={frak,cal}]
+  \setmathfont{XITS Math}[range={\bigcap,\bigcup,\bigoplus,\bigotimes,\vdots,\ddots}]
+  \setoperatorfont\mathsf
+  \renewcommand{\circ}{\mdsmwhtcircle}
+  \renewcommand{\bullet}{\mdsmblkcircle}
+\else
+  \if@doXelatex
+    \RequirePackage{fontspec}
+    \setmainfont{Source Serif 4}
+    \setsansfont{Source Sans 3}
+    \setmonofont{Source Code Pro}
+    \RequirePackage{unicode-math}
+    \setmathfont{STIX Two Math}
+    \setmathfont[range=\mathup]  {Source Sans 3}
+    \setmathfont[range=\mathbfup]{Source Sans 3 Bold}
+    \setmathfont[range=\mathbfit]{Source Sans 3 Bold Italic}
+    \setmathfont[range=\mathit]  {Source Sans 3 Italic}
+    \setoperatorfont\mathsf
+  \else
+    \if@doLualatex
+      \RequirePackage{fontspec}
+      \setmainfont{Source Serif Pro}
+      \setsansfont{Source Sans Pro}
+      \setmonofont{Source Code Pro}
+      \RequirePackage{unicode-math}
+      \setmathfont{STIX Two Math}
+      \setmathfont[range=\mathup]  {Source Sans Pro}
+      \setmathfont[range=\mathbfup]{Source Sans Pro Bold}
+      \setmathfont[range=\mathbfit]{Source Sans Pro Bold Italic}
+      \setmathfont[range=\mathit]  {Source Sans Pro Italic}
+      \setoperatorfont\mathsf
+    \else
+      \if@doNoto
+        \RequirePackage[sfdefault,vvarbb]{notomath}
+        \RequirePackage[scale=\NotoText@scale]{noto-mono}
+      \else
+        \if@doLmodern
+          \RequirePackage{lmodern}
+        \else
+          \if@doAlegreya
+            \RequirePackage{AlegreyaSans}
+            \RequirePackage{eulervm}
+            \RequirePackage{bbold}
+            \RequirePackage[T1]{fontenc}
+            \RequirePackage{textcomp}
+            \RequirePackage[scaled=.83]{beramono}
+          \else
+            \RequirePackage[default]{sourcesanspro}
+            \RequirePackage{sourcecodepro}
+            \RequirePackage{eulervm}
+            \RequirePackage[T1]{fontenc}
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+\fi
+
+\if@doAcademicons
+  \RequirePackage{academicons}
+\fi
+
+\RequirePackage{fontawesome5}
+\if@doMaterial
+  \usepackage[prefix=]{xcolor-material}
+\else
+  \RequirePackage[prefix=]{xcolor-solarized}
+\fi
+\RequirePackage{etoolbox}
+\RequirePackage{booktabs}
+
+% Bibliography symbol
+\setbeamertemplate{bibliography item}{\faBook}
+
+% Bibliography colors
+\if@doMaterial
+  \setbeamercolor{bibliography item}{fg=BlueGrey400}
+  \setbeamercolor*{bibliography entry title}{fg=BlueGrey900}
+  \setbeamercolor*{bibliography entry author}{fg=BlueGrey900}
+  \setbeamercolor*{bibliography entry location}{fg=BlueGrey600}
+  \setbeamercolor*{bibliography entry note}{fg=BlueGrey400}
+\else
+  \setbeamercolor{bibliography item}{fg=base0}
+  \setbeamercolor*{bibliography entry title}{fg=base02}
+  \setbeamercolor*{bibliography entry author}{fg=base02}
+  \setbeamercolor*{bibliography entry location}{fg=base01}
+  \setbeamercolor*{bibliography entry note}{fg=base0}
+\fi
+
+\useinnertheme[titlepage=false]{tcolorbox}
+
+% Settings
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{TerminalBlack}{rgb}{.33,.33,.33}
+\setbeamercolor{background canvas}{bg=TerminalBlack}
+
+\if@doMaterial
+  \setbeamercolor{title}{fg=White}
+  \setbeamercolor*{frametitle}{bg=BlueGrey900, fg=Amber50!85!Grey}
+  \setbeamercolor*{normal text}{fg=White}
+  \setbeamercolor*{alerted text}{fg=GoogleRed}
+  \setbeamercolor{part title}{fg=White}
+  \setbeamercolor{section title}{fg=White}
+  \setbeamercolor{subsection title}{fg=White}
+  \setbeamercolor{block title}{fg=GoogleBlue}
+  \setbeamercolor{block title alerted}{fg=GoogleRed}
+  \setbeamercolor{block title example}{fg=GoogleGreen}
+  \setbeamercolor{enumerate item}{fg=BlueGrey300}
+  \setbeamercolor{enumerate subitem}{fg=BlueGrey300}
+  \setbeamercolor{enumerate subsubitem}{fg=BlueGrey300}
+  \setbeamercolor{itemize item}{fg=BlueGrey300}
+  \setbeamercolor{itemize subitem}{fg=BlueGrey300}
+  \setbeamercolor{itemize subsubitem}{fg=BlueGrey300}
+  \setbeamercolor{section number projected}{fg=BlueGrey300}
+  \setbeamercolor{section in toc}{fg=White}
+\else
+  \setbeamercolor{title}{fg=red}
+  \setbeamercolor*{frametitle}{bg=base02, fg=base2}
+  \setbeamercolor*{normal text}{fg=base02, bg=base3}
+  \setbeamercolor*{alerted text}{fg=red}
+  \let\seville@sectiontitleformat\@empty%
+  \setbeamercolor{part title}{fg=blue}
+  \setbeamercolor{section title}{fg=blue}
+  \setbeamercolor{subsection title}{fg=blue}
+  \setbeamercolor{block title}{fg=blue}
+  \setbeamercolor{block title alerted}{fg=red}
+  \setbeamercolor{block title example}{fg=green}
+  \setbeamercolor{enumerate item}{fg=base1}
+  \setbeamercolor{enumerate subitem}{fg=base1}
+  \setbeamercolor{enumerate subsubitem}{fg=base1}
+  \setbeamercolor{itemize item}{fg=base1}
+  \setbeamercolor{itemize subitem}{fg=base1}
+  \setbeamercolor{itemize subsubitem}{fg=base1}
+  \setbeamercolor{section number projected}{fg=base1}
+  \setbeamercolor{section in toc}{fg=base02}
+\fi
+
+
+\setbeamertemplate{itemize item}{$\bullet$}
+\setbeamertemplate{itemize subitem}{$\circ$}
+\setbeamertemplate{itemize subsubitem}{-}
+\setbeamertemplate{enumerate subitem}{\alph{enumii}.}
+\setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+
+
+\AtBeginEnvironment{theorem}{%
+  \if@doMaterial
+    \setbeamercolor{block title}{fg=GoogleRed}
+  \else
+    \setbeamercolor{block title}{fg=red}
+  \fi
+}
+\AtBeginEnvironment{lemma}{%
+  \if@doMaterial
+    \setbeamercolor{block title}{fg=Orange}
+  \else
+    \setbeamercolor{block title}{fg=yellow}
+  \fi
+}
+\AtBeginEnvironment{corollary}{%
+  \if@doMaterial
+    \setbeamercolor{block title}{fg=Cyan}
+  \else
+    \setbeamercolor{block title}{fg=cyan}
+  \fi
+}
+\AtBeginEnvironment{fact}{%
+  \if@doMaterial
+    \setbeamercolor{block title}{fg=Orange}
+  \else
+    \setbeamercolor{block title}{fg=orange}
+  \fi
+}
+\AtBeginEnvironment{proof}{%
+  \if@doMaterial
+    \setbeamercolor{block title}{fg=Grey}
+  \else
+    \setbeamercolor{block title}{fg=base1}
+  \fi
+}
+
+\if@doMaterial
+  \renewcommand{\qedsymbol}{$\color{Grey}{\blacksquare}$}
+\else
+  \renewcommand{\qedsymbol}{$\color{base1}{\blacksquare}$}
+\fi
+
+\setlength{\parskip}{.5\baselineskip}
+
+% Boldface italic alterted text but not math
+\providecommand*{\beamer@alertedtext@only}{%
+  \relax
+  \ifmmode
+    \expandafter\beamer@alertedtext@warning
+  \else
+    \bfseries\itshape
+  \fi
+}
+\providecommand*{\beamer@alertedtext@warning}{%
+  \ClassWarning{beamer}
+  {Cannot use bold/italic for alerted text in math mode}%
+}
+
+
+\setbeamerfont*{framesubtitle}{series=\itshape\small}
+\setbeamerfont*{title}{series=\bfseries, size=\Large}
+\setbeamerfont*{subtitle}{series=\bfseries\itshape}
+\setbeamerfont*{date}{series=\itshape}
+\setbeamerfont*{alerted text}{series=\beamer@alertedtext@only}
+\setbeamerfont*{block title}{series=\itshape\normalsize}
+\addtobeamertemplate{theorem begin}{\normalfont}{}
+
+%\RequirePackage[most]{tcolorbox}
+
+\if@doMaterial
+  \tcbsetforeverylayer{
+    fonttitle=\bfseries\itshape,
+    colback=Amber50,
+    colbacktitle=Amber50,
+    size=tight,
+    top=2mm,
+    bottom=.5mm,
+    enhanced,
+    frame hidden,
+    borderline west = {2pt}{-2mm}{tcbcoltitle}
+  }
+\else
+  \tcbsetforeverylayer{
+    fonttitle=\bfseries\itshape,
+    colback=base3,
+    colbacktitle=base3,
+    size=tight,
+    top=2mm,
+    bottom=.5mm,
+    enhanced,
+    frame hidden,
+    borderline west = {2pt}{-2mm}{tcbcoltitle}
+  }
+\fi
+
+\NewDocumentEnvironment{proposition}{ o }{%
+  \if@doMaterial
+    \setbeamercolor{block title}{fg=Pink}
+  \else
+    \setbeamercolor{block title}{fg=magenta}
+  \fi
+  \begin{block}{Proposition \IfValueT{#1}{(#1)}}
+    }{%
+  \end{block}}
+\NewDocumentEnvironment{remark}{ o }{%
+  \if@doMaterial
+    \setbeamercolor{block title}{fg=Indigo}
+  \else
+    \setbeamercolor{block title}{fg=violet}
+  \fi
+  \begin{block}{Remark \IfValueT{#1}{(#1)}}
+    }{%
+  \end{block}}
+
+
+
+\NewDocumentCommand\email{ o m }{\newcommand\insertemail{\href{mailto:\IfValueTF{#1}{#1}{#2}}{\mbox{{\scriptsize\faEnvelope}\hspace{.5em}\scriptsize #2}}}}
+\NewDocumentCommand\site{ o m }{\newcommand\insertsite{\href{\IfValueTF{#1}{#1}{#2}}{\mbox{{\scriptsize\faHome}\hspace{.5em}\scriptsize #2}}}}
+\NewDocumentCommand\mathscinet{ m }{\newcommand\insertmathscinet{\href{#1}{\mbox{{\scriptsize\faUniversity}\hspace{.5em}\scriptsize MathSciNet}}}}
+\NewDocumentCommand\arxiv{ s m }{
+  \newcommand\insertarxiv{\href{\IfBooleanTF{#1}{https://arxiv.org/a/#2.html}{#2}}{\mbox{\scriptsize\aiarXiv}\hspace{.5em}\scriptsize \IfBooleanTF{#1}{#2}{arXiv}}}
+}
+\NewDocumentCommand\zotero{ m }{\newcommand\insertzotero{\href{#1}{\mbox{{\scriptsize\aiZoteroSquare}\hspace{.5em}\scriptsize Zotero}}}}
+\NewDocumentCommand\googlescholar{ m }{\newcommand\insertgooglescholar{\href{#1}{\mbox{{\scriptsize\aiGoogleScholar}\hspace{.5em}\scriptsize Google Scholar}}}}
+\NewDocumentCommand\orcid{ m }{\newcommand\insertorcid{\href{#1}{\mbox{{\scriptsize\aiOrcid}}\hspace{.5em}\scriptsize ORCID}}}
+\NewDocumentCommand\scopus{ m }{\newcommand\insertscopus{\href{#1}{\mbox{{\scriptsize\aiScopusSquare}\hspace{.5em}\scriptsize Scopus}}}}
+\NewDocumentCommand\facebook{ m }{\newcommand\insertfacebook{\href{#1}{\mbox{{\scriptsize\faFacebook}\hspace{.5em}\scriptsize Facebook}}}}
+\NewDocumentCommand\linkedin{ m }{\newcommand\insertlinkedin{\href{#1}{\mbox{{\scriptsize\faLinkedin}\hspace{.5em}\scriptsize Linkedin}}}}
+\NewDocumentCommand\github{ m }{\newcommand\insertgithub{\href{https://github.com/#1}{\mbox{{\scriptsize\faGithub}\hspace{.5em}\scriptsize #1}}}}
+\NewDocumentCommand\gitlab{ m }{\newcommand\insertgitlab{\href{https://gitlab.com/#1}{\mbox{{\scriptsize\faGitlab}\hspace{.5em}\scriptsize #1}}}}
+\NewDocumentCommand\twitter{ m }{\newcommand\inserttwitter{\href{https://x.com/#1}{\mbox{{\scriptsize\faTwitter}\hspace{.5em}\scriptsize @#1}}}}
+\NewDocumentCommand\instagram{ m }{\newcommand\insertinstagram{\href{https://www.instagram.com/#1}{\mbox{{\scriptsize\faInstagram}\hspace{.5em}\scriptsize #1}}}}
+
+% Title page
+\defbeamertemplate*{title page}{}{
+  \vfill
+  {\inserttitlegraphic}\par\bigskip
+  {\usebeamerfont{title}{\usebeamercolor[fg]{title}{\inserttitle}}}\par
+  {\usebeamerfont{subtitle}\insertsubtitle}\par
+  {\usebeamerfont{date}\insertdate}\par
+  {\usebeamerfont{author}\insertauthor}\newline
+  {\usebeamerfont{institute}\insertinstitute}\par
+  {\@ifundefined{insertemail}{}{\insertemail\quad}
+    \@ifundefined{insertsite}{}{\insertsite\quad}
+    \@ifundefined{insertmathscinet}{}{\insertmathscinet\quad}
+    \@ifundefined{insertarxiv}{}{\insertarxiv\quad}
+    \@ifundefined{insertzotero}{}{\insertzotero\quad}
+    \@ifundefined{insertgooglescholar}{}{\insertgooglescholar\quad}
+    \@ifundefined{insertorcid}{}{\insertorcid\quad}
+    \@ifundefined{insertscopus}{}{\insertscopus\quad}
+    \@ifundefined{insertgithub}{}{\insertgithub\quad}
+    \@ifundefined{insertgitlab}{}{\insertgitlab\quad}
+    \@ifundefined{insertfacebook}{}{\insertfacebook\quad}
+    \@ifundefined{insertlinkedin}{}{\insertlinkedin\quad}
+    \@ifundefined{inserttwitter}{}{\inserttwitter\quad}
+    \@ifundefined{insertinstagram}{}{\insertinstagram\quad}
+  }}
+
+\renewcommand<>\beamer@framefootnotetext[1]{%
+  \global\setbox\beamer@footins\vbox{%
+    \hsize\framewidth
+    \textwidth\hsize
+    \columnwidth\hsize
+    \unvbox\beamer@footins
+    \reset@font\footnotesize
+    \@parboxrestore
+    \protected@edef\@currentlabel
+    {\noindent\csname p@footnote\endcsname\@thefnmark}%
+    \hskip -1.5em
+    \color@begingroup
+    \uncover#2{\@makefntext{%
+        \rule\z@\footnotesep\ignorespaces\parbox[t]{.99\textwidth}{#1\@finalstrut\strutbox}\vskip1sp}}%
+    \color@endgroup}%
+}
+
+\mode<all>
