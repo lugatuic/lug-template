@@ -1,0 +1,7 @@
+# PDFLatex build fragments
+*.log 
+*.aux 
+*.nav 
+*.out 
+*.snm 
+*.toc 
