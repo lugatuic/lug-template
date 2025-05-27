@@ -208,6 +208,8 @@
 % NOTE: that RGB values must be between 0 and 255.
 % NOTE: the second argument "{RGB}" MUST be capitalized. "{rgb}" takes arguments between 0 and 1 for some reason. 
 
+% Catppuccin Mocha (Default) %
+% Prefix: CatM %
 
 
 %  --- Custom Color Declaration End --- %
@@ -236,18 +238,29 @@
   \setbeamercolor{section number projected}{fg=BlueGrey300}
   \setbeamercolor{section in toc}{fg=White}
 \else
-  
+  % Title Text
   \setbeamercolor{title}{fg=red}
+  % Frame's title. bg determines color of bar, fg determines text color 
   \setbeamercolor*{frametitle}{bg=base02, fg=base2}
-  \setbeamercolor*{normal text}{fg=base02, bg=base3}
+  % Regular Text Color.fg determines text color.
+  % TODO: figure out what bg determines
+  \setbeamercolor*{normal text}{fg=base2}
+  % Alerted text color
   \setbeamercolor*{alerted text}{fg=red}
+  % TODO: Determine what this means.
   \let\seville@sectiontitleformat\@empty%
   \setbeamercolor{part title}{fg=blue}
   \setbeamercolor{section title}{fg=blue}
   \setbeamercolor{subsection title}{fg=blue}
   \setbeamercolor{block title}{fg=blue}
-  \setbeamercolor{block title alerted}{fg=red}
-  \setbeamercolor{block title example}{fg=green}
+  % "Alerted" Title Text; fg = text color, bg = background "highlight"
+  \setbeamercolor{block title alerted}{fg=red, bg=base03}
+  % "Alerted" Block Content; fg = text color, bg = background "highlight"
+  \setbeamercolor{block body alerted}{fg=red, bg=base03}
+  % "Example" Title Text; fg = text color, bg = background "highlight"
+  \setbeamercolor{block title example}{bg="base03", fg=green}
+  % Example Block Content; fg = text color, bg = background "highlight"
+  \setbeamercolor{block body example}{bg=base03, fg=green}
   \setbeamercolor{enumerate item}{fg=base1}
   \setbeamercolor{enumerate subitem}{fg=base1}
   \setbeamercolor{enumerate subsubitem}{fg=base1}
