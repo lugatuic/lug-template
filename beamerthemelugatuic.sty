@@ -374,6 +374,12 @@
 
 %\RequirePackage[most]{tcolorbox}
 
+% All Block Enviroments (Block, AlertBlock, ExampleBlock) are tcbboxes
+% If you want to edit this stuff, I'll save you a little time!
+% tcbox documentation: https://texdoc.org/serve/tcolorbox.pdf/0
+% If you're trying to look for a specific property (like size, colback, etc.) search for it like so:
+% /tcb/PROPERTYNAME
+
 \if@doMaterial
   \tcbsetforeverylayer{
     fonttitle=\bfseries\itshape,
@@ -387,15 +393,14 @@
     borderline west = {2pt}{-2mm}{tcbcoltitle}
   }
 \else
+  % TODO: Fix padding/spacing bug between title & content of blocks
   \tcbsetforeverylayer{
     fonttitle=\bfseries\itshape,
-    colback=base3,
-    colbacktitle=base3,
-    size=tight,
-    top=2mm,
-    bottom=.5mm,
+    colback=GruvDarkblack,
+    colframe=GruvDarkblack,
+    size=fbox,
     enhanced,
-    frame hidden,
+    % Colored Bar at side of Block
     borderline west = {2pt}{-2mm}{tcbcoltitle}
   }
 \fi
@@ -421,6 +426,8 @@
 
 
 
+% External Link Formatting Code
+  % Format: [ICON] [LINK] that is automatically generated from input info :)
 \NewDocumentCommand\email{ o m }{\newcommand\insertemail{\href{mailto:\IfValueTF{#1}{#1}{#2}}{\mbox{{\scriptsize\faEnvelope}\hspace{.5em}\scriptsize #2}}}}
 \NewDocumentCommand\site{ o m }{\newcommand\insertsite{\href{\IfValueTF{#1}{#1}{#2}}{\mbox{{\scriptsize\faHome}\hspace{.5em}\scriptsize #2}}}}
 \NewDocumentCommand\mathscinet{ m }{\newcommand\insertmathscinet{\href{#1}{\mbox{{\scriptsize\faUniversity}\hspace{.5em}\scriptsize MathSciNet}}}}
