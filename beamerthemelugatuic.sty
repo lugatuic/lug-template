@@ -208,14 +208,25 @@
 % NOTE: that RGB values must be between 0 and 255.
 % NOTE: the second argument "{RGB}" MUST be capitalized. "{rgb}" takes arguments between 0 and 1 for some reason. 
 
-% Catppuccin Mocha (Default) %
-% Prefix: CatM %
+% GruvBox Dark Theme (Default)
+% https://github.com/morhetz/gruvbox?tab=readme-ov-file
+% Prefix: GruvDark
 
+\definecolor{GruvDarkbg}{RGB}{40,40,40}
+% Defined as "bg0_h" in above link
+\definecolor{GruvDarkblack}{RGB}{29,32,33}
+% Defined as "bg1"
+\definecolor{GruvDarkdarkgray}{RGB}{60,56,54}
+% Defined as "fg0"
+\definecolor{GruvDarkwhite}{RGB}{251,241,199}
+\definecolor{GruvDarkblue}{RGB}{69,133,136}
+\definecolor{GruvDarkred}{RGB}{204,35,29}
+\definecolor{GruvDarkgreen}{RGB}{152,151,26}
 
 %  --- Custom Color Declaration End --- %
 
-\definecolor{TerminalBlack}{RGB}{33,33,33}
-\setbeamercolor{background canvas}{bg=TerminalBlack}
+% Background Color
+\setbeamercolor{background canvas}{bg=GruvDarkbg}
 
 % TODO: Handle Depreceated Material Theme
 \if@doMaterial
@@ -239,14 +250,13 @@
   \setbeamercolor{section in toc}{fg=White}
 \else
   % Title Text
-  \setbeamercolor{title}{fg=red}
+  \setbeamercolor{title}{fg=GruvDarkwhite}
   % Frame's title. bg determines color of bar, fg determines text color 
-  \setbeamercolor*{frametitle}{bg=base02, fg=base2}
+  \setbeamercolor*{frametitle}{bg=base02, fg=GruvDarkwhite}
   % Regular Text Color.fg determines text color.
-  % TODO: figure out what bg determines
-  \setbeamercolor*{normal text}{fg=base2}
+  \setbeamercolor*{normal text}{fg=GruvDarkwhite}
   % Alerted text color
-  \setbeamercolor*{alerted text}{fg=red}
+  \setbeamercolor*{alerted text}{fg=GruvDarkred}
   % TODO: Determine what this means.
   \let\seville@sectiontitleformat\@empty%
   \setbeamercolor{part title}{fg=blue}
@@ -259,16 +269,16 @@
   % fg = the text color
 
   % Default Block
-  \setbeamercolor{block title}{bg=base03, fg=blue}
-  \setbeamercolor{block body}{bg=base03, fg=base3}
+  \setbeamercolor{block title}{bg=GruvDarkblack, fg=GruvDarkblue}
+  \setbeamercolor{block body}{bg=GruvDarkblack, fg=GruvDarkwhite}
 
   % Alerted Block
-  \setbeamercolor{block title alerted}{bg=base03, fg=red}
-  \setbeamercolor{block body alerted}{bg=base03, fg=base3}
+  \setbeamercolor{block title alerted}{bg=GruvDarkblack, fg=GruvDarkred}
+  \setbeamercolor{block body alerted}{bg=GruvDarkblack, fg=GruvDarkwhite}
 
   % Example Block
-  \setbeamercolor{block title example}{bg=base03, fg=green}
-  \setbeamercolor{block body example}{bg=base03, fg=base3}
+  \setbeamercolor{block title example}{bg=GruvDarkblack, fg=GruvDarkgreen}
+  \setbeamercolor{block body example}{bg=GruvDarkblack, fg=GruvDarkwhite}
   
   % Color of Enumerate Numbers & Itemize Bullets
   \setbeamercolor{enumerate item}{fg=base1}
