@@ -252,15 +252,24 @@
   \setbeamercolor{part title}{fg=blue}
   \setbeamercolor{section title}{fg=blue}
   \setbeamercolor{subsection title}{fg=blue}
-  \setbeamercolor{block title}{fg=blue}
-  % "Alerted" Title Text; fg = text color, bg = background "highlight"
-  \setbeamercolor{block title alerted}{fg=red, bg=base03}
-  % "Alerted" Block Content; fg = text color, bg = background "highlight"
-  \setbeamercolor{block body alerted}{fg=red, bg=base03}
-  % "Example" Title Text; fg = text color, bg = background "highlight"
+  % Block Enviroment Text Coloring.
+  % {block title} manages the block title.
+  % {block body} manages the block content text.
+  % bg = the background color, which acts like a background highlight.
+  % fg = the text color
+
+  % Default Block
+  \setbeamercolor{block title}{bg=base03, fg=blue}
+  \setbeamercolor{block body}{bg=base03, fg=base3}
+
+  % Alerted Block
+  \setbeamercolor{block title alerted}{bg=base03, fg=red}
+  \setbeamercolor{block body alerted}{bg=base03, fg=base3}
+
+  % Example Block
   \setbeamercolor{block title example}{bg=base03, fg=green}
-  % Example Block Content; fg = text color, bg = background "highlight"
-  \setbeamercolor{block body example}{bg=base03, fg=green}
+  \setbeamercolor{block body example}{bg=base03, fg=base3}
+  
   % Color of Enumerate Numbers & Itemize Bullets
   \setbeamercolor{enumerate item}{fg=base1}
   \setbeamercolor{enumerate subitem}{fg=base1}
