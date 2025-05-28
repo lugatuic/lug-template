@@ -1,0 +1,75 @@
+% Template Author: Michael Hanif Khan
+
+\documentclass{beamer}
+\usepackage{../beamerthemelugatuic}
+
+% Title
+\title{LUG@UIC Beamer Template}
+\subtitle{witty subtitle}
+% LUG Logo
+\titlegraphic{\includegraphics[width=25mm]{../assets/lug-logo-invert.png}}
+% Metadata
+% TODO: Update with date of GBM
+\date{Fall 2025}
+% TODO: Update with GBM Slide Authors
+\author{Michael Hanif Khan}
+\institute{Linux Users Group @ UIC}
+\site{lug.cs.uic.edu}
+\github{lugatuic}
+
+% Document Begin
+\begin{document}
+  % Title Page
+  \begin{frame}
+    \titlepage
+  \end{frame}
+
+  % Table of Contents
+  \begin{frame}{Table of Contents}
+    % NOTE: If you want each section to be revealed with a press forward, use the option [pausesections]
+    \tableofcontents
+  \end{frame}
+
+  \section{Formatted Text!}
+  \begin{frame}{Text Formatting and You: A New Frontier}
+
+    \begin{block}{Block!}
+     Quick aside, this is a quick aside... 
+    \end{block}
+    \begin{alertblock}{Alert Block}
+      Alert! This text is alerted!
+    \end{alertblock}
+    \begin{exampleblock}{Example Block}
+      For Example, this little guy.
+    \end{exampleblock}
+
+    \emph{This} text has an inline \alert{alert!}
+
+    \textbf{See You, } \texttt{Monospace} Cowboy...
+    
+  \end{frame}
+
+  \section{List Testing}
+  \begin{frame}{List Testing}
+    \begin{enumerate}
+      \item We
+        \begin{enumerate}
+          \item at LUG
+          \begin{enumerate}
+            \item Linux
+            \item Users'
+            \item Group
+          \end{enumerate}
+          \item or anywhere else...
+        \end{enumerate}
+      \item Support
+      \item Lists!
+    \end{enumerate}
+    \begin{itemize}
+      \item Bulleted
+      \item Or
+      \item Not!
+    \end{itemize}
+  \end{frame}
+
+\end{document}

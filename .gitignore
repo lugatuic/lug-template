@@ -1,7 +1,3 @@
-## TEMP, REPLACE LATER
-*.pdf
-*.tex
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
