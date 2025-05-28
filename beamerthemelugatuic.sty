@@ -55,12 +55,6 @@
 \DeclareOptionBeamer{academicons}{\@doAcademiconstrue}
 \ProcessOptionsBeamer
 
-% TODO: Remove Material Support & Replace with alternative terminal colorscheme options
-\newif\if@doMaterial
-\@doMaterialfalse
-\DeclareOptionBeamer{material}{\@doMaterialtrue}
-\ProcessOptionsBeamer
-
 % LuaLaTeX Support
 % TODO: Verify this works
 \newif\if@doLualatex
@@ -160,12 +154,6 @@
 
 % Use Font Awesome 5
 \RequirePackage{fontawesome5}
-% TODO: Depreceate Material UI Support 
-\if@doMaterial
-  \usepackage[prefix=]{xcolor-material}
-\else
-  \RequirePackage[prefix=]{xcolor-solarized}
-\fi
 
 % Support for basic programming within TeX packages
 % TODO: Verify neccessity
@@ -177,19 +165,12 @@
 \setbeamertemplate{bibliography item}{\faBook}
 
 % Bibliography colors
-\if@doMaterial
-  \setbeamercolor{bibliography item}{fg=BlueGrey400}
-  \setbeamercolor*{bibliography entry title}{fg=BlueGrey900}
-  \setbeamercolor*{bibliography entry author}{fg=BlueGrey900}
-  \setbeamercolor*{bibliography entry location}{fg=BlueGrey600}
-  \setbeamercolor*{bibliography entry note}{fg=BlueGrey400}
-\else
-  \setbeamercolor{bibliography item}{fg=base0}
-  \setbeamercolor*{bibliography entry title}{fg=base02}
-  \setbeamercolor*{bibliography entry author}{fg=base02}
-  \setbeamercolor*{bibliography entry location}{fg=base01}
-  \setbeamercolor*{bibliography entry note}{fg=base0}
-\fi
+% TODO: Add these to demo for sensible colorpicking
+\setbeamercolor{bibliography item}{fg=GruvDarkdarkgray}
+\setbeamercolor*{bibliography entry title}{fg=GruvDarkblack}
+\setbeamercolor*{bibliography entry author}{fg=GruvDarkblack}
+\setbeamercolor*{bibliography entry location}{fg=GruvDarkdarkgray}
+\setbeamercolor*{bibliography entry note}{fg=GruvDarkdarkgray}
 
 \useinnertheme[titlepage=false]{tcolorbox}
 
@@ -227,70 +208,49 @@
 % Background Color
 \setbeamercolor{background canvas}{bg=GruvDarkbg}
 
-% TODO: Handle Depreceated Material Theme
-\if@doMaterial
-  \setbeamercolor{title}{fg=White}
-  \setbeamercolor*{frametitle}{bg=BlueGrey900, fg=Amber50!85!Grey}
-  \setbeamercolor*{normal text}{fg=White}
-  \setbeamercolor*{alerted text}{fg=GoogleRed}
-  \setbeamercolor{part title}{fg=White}
-  \setbeamercolor{section title}{fg=White}
-  \setbeamercolor{subsection title}{fg=White}
-  \setbeamercolor{block title}{fg=GoogleBlue}
-  \setbeamercolor{block title alerted}{fg=GoogleRed}
-  \setbeamercolor{block title example}{fg=GoogleGreen}
-  \setbeamercolor{enumerate item}{fg=BlueGrey300}
-  \setbeamercolor{enumerate subitem}{fg=BlueGrey300}
-  \setbeamercolor{enumerate subsubitem}{fg=BlueGrey300}
-  \setbeamercolor{itemize item}{fg=BlueGrey300}
-  \setbeamercolor{itemize subitem}{fg=BlueGrey300}
-  \setbeamercolor{itemize subsubitem}{fg=BlueGrey300}
-  \setbeamercolor{section number projected}{fg=BlueGrey300}
-  \setbeamercolor{section in toc}{fg=White}
-\else
-  % Title Text
-  \setbeamercolor{title}{fg=GruvDarkwhite}
-  % Frame's title. bg determines color of bar, fg determines text color 
-  \setbeamercolor*{frametitle}{bg=GruvDarkdarkgray, fg=GruvDarkwhite}
-  % Regular Text Color.fg determines text color.
-  \setbeamercolor*{normal text}{fg=GruvDarkwhite}
-  % Alerted text color
-  \setbeamercolor*{alerted text}{fg=GruvDarkred}
+% Title Text
+\setbeamercolor{title}{fg=GruvDarkwhite}
+% Frame's title. bg determines color of bar, fg determines text color 
+\setbeamercolor*{frametitle}{bg=GruvDarkdarkgray, fg=GruvDarkwhite}
+% Regular Text Color.fg determines text color.
+\setbeamercolor*{normal text}{fg=GruvDarkwhite}
+% Alerted text color
+\setbeamercolor*{alerted text}{fg=GruvDarkred}
 
-  % TODO: Check if this is redunant
-  \setbeamercolor{part title}{fg=blue}
-  \setbeamercolor{section title}{fg=blue}
-  \setbeamercolor{subsection title}{fg=blue}
-  % Block Enviroment Text Coloring.
-  % {block title} manages the block title.
-  % {block body} manages the block content text.
-  % bg = the background color, which acts like a background highlight.
-  % fg = the text color
+% TODO: Check if this is redunant
+\setbeamercolor{part title}{fg=blue}
+\setbeamercolor{section title}{fg=blue}
+\setbeamercolor{subsection title}{fg=blue}
+% Block Enviroment Text Coloring.
+% {block title} manages the block title.
+% {block body} manages the block content text.
+% bg = the background color, which acts like a background highlight.
+% fg = the text color
 
-  % Default Block
-  \setbeamercolor{block title}{bg=GruvDarkblack, fg=GruvDarkblue}
-  \setbeamercolor{block body}{bg=GruvDarkblack, fg=GruvDarkwhite}
+% Default Block
+\setbeamercolor{block title}{bg=GruvDarkblack, fg=GruvDarkblue}
+\setbeamercolor{block body}{bg=GruvDarkblack, fg=GruvDarkwhite}
 
-  % Alerted Block
-  \setbeamercolor{block title alerted}{bg=GruvDarkblack, fg=GruvDarkred}
-  \setbeamercolor{block body alerted}{bg=GruvDarkblack, fg=GruvDarkwhite}
+% Alerted Block
+\setbeamercolor{block title alerted}{bg=GruvDarkblack, fg=GruvDarkred}
+\setbeamercolor{block body alerted}{bg=GruvDarkblack, fg=GruvDarkwhite}
 
-  % Example Block
-  \setbeamercolor{block title example}{bg=GruvDarkblack, fg=GruvDarkgreen}
-  \setbeamercolor{block body example}{bg=GruvDarkblack, fg=GruvDarkwhite}
-  
-  % Color of Enumerate Numbers & Itemize Bullets
-  \setbeamercolor{enumerate item}{fg=base1}
-  \setbeamercolor{enumerate subitem}{fg=base1}
-  \setbeamercolor{enumerate subsubitem}{fg=base1}
-  \setbeamercolor{itemize item}{fg=base1}
-  \setbeamercolor{itemize subitem}{fg=base1}
-  \setbeamercolor{itemize subsubitem}{fg=base1}
+% Example Block
+\setbeamercolor{block title example}{bg=GruvDarkblack, fg=GruvDarkgreen}
+\setbeamercolor{block body example}{bg=GruvDarkblack, fg=GruvDarkwhite}
 
-  \setbeamercolor{section number projected}{fg=base1}
-  % TOC Section Titles; fg = text color
-  \setbeamercolor{section in toc}{fg=base2}
-\fi
+% Color of Enumerate Numbers & Itemize Bullets
+% TODO: GruvDarkgray
+\setbeamercolor{enumerate item}{fg=gray}
+\setbeamercolor{enumerate subitem}{fg=gray}
+\setbeamercolor{enumerate subsubitem}{fg=gray}
+\setbeamercolor{itemize item}{fg=gray}
+\setbeamercolor{itemize subitem}{fg=gray}
+\setbeamercolor{itemize subsubitem}{fg=gray}
+
+\setbeamercolor{section number projected}{fg=GruvDarkdarkgray}
+% TOC Section Titles; fg = text color
+\setbeamercolor{section in toc}{fg=GruvDarkwhite}
 
 
 \setbeamertemplate{itemize item}{$\bullet$}
@@ -306,48 +266,26 @@
 % Math-y Enviroments. It's extra work to remove support that *may* come in handy to someone.
 % It's also not that important to me to change. Feel free to change this if you care about these enviroments though :)
 \AtBeginEnvironment{theorem}{%
-  \if@doMaterial
-    \setbeamercolor{block title}{fg=GoogleRed}
-  \else
-    \setbeamercolor{block title}{fg=red}
-  \fi
+  \setbeamercolor{block title}{fg=GruvDarkred}
 }
+% TODO: GruvDarkyellow
 \AtBeginEnvironment{lemma}{%
-  \if@doMaterial
-    \setbeamercolor{block title}{fg=Orange}
-  \else
-    \setbeamercolor{block title}{fg=yellow}
-  \fi
+  \setbeamercolor{block title}{fg=yellow}
 }
 \AtBeginEnvironment{corollary}{%
-  \if@doMaterial
-    \setbeamercolor{block title}{fg=Cyan}
-  \else
-    \setbeamercolor{block title}{fg=cyan}
-  \fi
+  \setbeamercolor{block title}{fg=GruvDarkblue}
 }
+% TODO: GruvDarkorange
 \AtBeginEnvironment{fact}{%
-  \if@doMaterial
-    \setbeamercolor{block title}{fg=Orange}
-  \else
-    \setbeamercolor{block title}{fg=orange}
-  \fi
+  \setbeamercolor{block title}{fg=orange}
 }
+% NOTE: GruvDarkgray?
 \AtBeginEnvironment{proof}{%
-  \if@doMaterial
-    \setbeamercolor{block title}{fg=Grey}
-  \else
-    \setbeamercolor{block title}{fg=base1}
-  \fi
+  \setbeamercolor{block title}{fg=gray}
 }
 
 % QED Symbol Definition
-% TODO: Remove Deprecated Material UI Support
-\if@doMaterial
-  \renewcommand{\qedsymbol}{$\color{Grey}{\blacksquare}$}
-\else
-  \renewcommand{\qedsymbol}{$\color{base1}{\blacksquare}$}
-\fi
+\renewcommand{\qedsymbol}{$\color{GruvDarkblack}{\blacksquare}$}
 
 \setlength{\parskip}{.5\baselineskip}
 
@@ -393,47 +331,25 @@
 % If you're trying to look for a specific property (like size, colback, etc.) search for it like so:
 % /tcb/PROPERTYNAME
 
-\if@doMaterial
-  \tcbsetforeverylayer{
-    fonttitle=\bfseries\itshape,
-    colback=Amber50,
-    colbacktitle=Amber50,
-    size=tight,
-    top=2mm,
-    bottom=.5mm,
-    enhanced,
-    frame hidden,
-    borderline west = {2pt}{-2mm}{tcbcoltitle}
-  }
-\else
-  % TODO: Fix padding/spacing bug between title & content of blocks
-  \tcbsetforeverylayer{
-    fonttitle=\bfseries\itshape,
-    colback=GruvDarkblack,
-    colframe=GruvDarkblack,
-    size=fbox,
-    enhanced,
-    % Colored Bar at side of Block
-    borderline west = {2pt}{-2mm}{tcbcoltitle}
-  }
-\fi
+% TODO: Fix padding/spacing bug between title & content of blocks
+\tcbsetforeverylayer{
+  fonttitle=\bfseries\itshape,
+  colback=GruvDarkblack,
+  colframe=GruvDarkblack,
+  size=fbox,
+  enhanced,
+  % Colored Bar at side of Block
+  borderline west = {2pt}{-2mm}{tcbcoltitle}
+}
 
 % Math enviroment stuff
 \NewDocumentEnvironment{proposition}{ o }{%
-  \if@doMaterial
-    \setbeamercolor{block title}{fg=Pink}
-  \else
-    \setbeamercolor{block title}{fg=magenta}
-  \fi
+  \setbeamercolor{block title}{fg=purple}
   \begin{block}{Proposition \IfValueT{#1}{(#1)}}
     }{%
   \end{block}}
 \NewDocumentEnvironment{remark}{ o }{%
-  \if@doMaterial
-    \setbeamercolor{block title}{fg=Indigo}
-  \else
-    \setbeamercolor{block title}{fg=violet}
-  \fi
+  \setbeamercolor{block title}{fg=violet}
   \begin{block}{Remark \IfValueT{#1}{(#1)}}
     }{%
   \end{block}}
