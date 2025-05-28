@@ -373,9 +373,9 @@
 % Make the Title text large and bold
 \setbeamerfont*{title}{series=\bfseries, size=\Large}
 % Make the document Subtitle bold and italic
-\setbeamerfont*{subtitle}{series=\bfseries\itshape}
+\setbeamerfont*{subtitle}{series=\itshape}
 % Make the date italic
-\setbeamerfont*{date}{series=\itshape}
+\setbeamerfont*{date}{series=\itshape, size=\small}
 %  Make alerted text... alerted :)
 \setbeamerfont*{alerted text}{series=\beamer@alertedtext@only}
 % Make block title text italic (and enforce a normal size)
@@ -462,10 +462,9 @@
 % Title Page Template
 \defbeamertemplate*{title page}{}{
   \vfill
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-      {\usebeamerfont{title}{\usebeamercolor[fg]{title}{\inserttitle}}}\par
-      {\usebeamerfont{subtitle}\insertsubtitle}\par
+  \ifx\inserttitlegraphic\empty
+      {\usebeamerfont{title}{\usebeamercolor[fg]{title}{\inserttitle}}}\newline
+      {\usebeamerfont{subtitle}\insertsubtitle}\newline
       {\usebeamerfont{date}\insertdate}\par
       {\usebeamerfont{author}\insertauthor}\newline
       {\usebeamerfont{institute}\insertinstitute}\par
@@ -484,14 +483,41 @@
         \@ifundefined{inserttwitter}{}{\inserttwitter\quad}
         \@ifundefined{insertinstagram}{}{\insertinstagram\quad}
       }
-    \end{column}
-    \begin{column}{0.4\textwidth}
-      \begin{figure}
-        \centering
-        \inserttitlegraphic
-      \end{figure}
-    \end{column}
-  \end{columns}
+  \else
+    \begin{columns}
+      \begin{column}{0.6\textwidth}
+        \begin{flushleft}
+        {\usebeamerfont{title}{\usebeamercolor[fg]{title}{\inserttitle}}}\par
+        {\usebeamerfont{subtitle}\insertsubtitle}\par
+        {\usebeamerfont{date}\insertdate}\par
+        \vspace{2mm}
+        {\usebeamerfont{author}\insertauthor}\par
+        {\usebeamerfont{institute}\insertinstitute}\par
+        {\@ifundefined{insertemail}{}{\insertemail\quad}
+          \@ifundefined{insertsite}{}{\insertsite\quad}
+          \@ifundefined{insertmathscinet}{}{\insertmathscinet\quad}
+          \@ifundefined{insertarxiv}{}{\insertarxiv\quad}
+          \@ifundefined{insertzotero}{}{\insertzotero\quad}
+          \@ifundefined{insertgooglescholar}{}{\insertgooglescholar\quad}
+          \@ifundefined{insertorcid}{}{\insertorcid\quad}
+          \@ifundefined{insertscopus}{}{\insertscopus\quad}
+          \@ifundefined{insertgithub}{}{\insertgithub\quad}
+          \@ifundefined{insertgitlab}{}{\insertgitlab\quad}
+          \@ifundefined{insertfacebook}{}{\insertfacebook\quad}
+          \@ifundefined{insertlinkedin}{}{\insertlinkedin\quad}
+          \@ifundefined{inserttwitter}{}{\inserttwitter\quad}
+          \@ifundefined{insertinstagram}{}{\insertinstagram\quad}
+        }
+        \end{flushleft}
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \begin{figure}
+          \centering
+          \inserttitlegraphic
+        \end{figure}
+      \end{column}
+    \end{columns}
+  \fi
 }
 
 \renewcommand<>\beamer@framefootnotetext[1]{%
