@@ -166,11 +166,11 @@
 
 % Bibliography colors
 % TODO: Add these to demo for sensible colorpicking
-\setbeamercolor{bibliography item}{fg=GruvDarkdarkgray}
+\setbeamercolor{bibliography item}{fg=GruvDarkkgray}
 \setbeamercolor*{bibliography entry title}{fg=GruvDarkblack}
 \setbeamercolor*{bibliography entry author}{fg=GruvDarkblack}
 \setbeamercolor*{bibliography entry location}{fg=GruvDarkdarkgray}
-\setbeamercolor*{bibliography entry note}{fg=GruvDarkdarkgray}
+\setbeamercolor*{bibliography entry note}{fg=GruvDarkgray}
 
 \useinnertheme[titlepage=false]{tcolorbox}
 
@@ -197,11 +197,15 @@
 \definecolor{GruvDarkblack}{RGB}{29,32,33}
 % Defined as "bg1"
 \definecolor{GruvDarkdarkgray}{RGB}{60,56,54}
+\definecolor{GruvDarkgray}{RGB}{146,131,116}
 % Defined as "fg0"
 \definecolor{GruvDarkwhite}{RGB}{251,241,199}
 \definecolor{GruvDarkblue}{RGB}{69,133,136}
 \definecolor{GruvDarkred}{RGB}{204,35,29}
 \definecolor{GruvDarkgreen}{RGB}{152,151,26}
+\definecolor{GurvDarkpurple}{RGB}{177,98,134}
+\definecolor{GruvDarkorange}{RGB}{254,128,25}
+\definecolor{GruvDarkyellow}{RGB}{250,189,47}
 
 %  --- Custom Color Declaration End --- %
 
@@ -240,13 +244,12 @@
 \setbeamercolor{block body example}{bg=GruvDarkblack, fg=GruvDarkwhite}
 
 % Color of Enumerate Numbers & Itemize Bullets
-% TODO: GruvDarkgray
-\setbeamercolor{enumerate item}{fg=gray}
-\setbeamercolor{enumerate subitem}{fg=gray}
-\setbeamercolor{enumerate subsubitem}{fg=gray}
-\setbeamercolor{itemize item}{fg=gray}
-\setbeamercolor{itemize subitem}{fg=gray}
-\setbeamercolor{itemize subsubitem}{fg=gray}
+\setbeamercolor{enumerate item}{fg=GruvDarkgray}
+\setbeamercolor{enumerate subitem}{fg=GruvDarkgray}
+\setbeamercolor{enumerate subsubitem}{fg=GruvDarkgray}
+\setbeamercolor{itemize item}{fg=GruvDarkgray}
+\setbeamercolor{itemize subitem}{fg=GruvDarkgray}
+\setbeamercolor{itemize subsubitem}{fg=GruvDarkgray}
 
 \setbeamercolor{section number projected}{fg=GruvDarkdarkgray}
 % TOC Section Titles; fg = text color
@@ -268,20 +271,18 @@
 \AtBeginEnvironment{theorem}{%
   \setbeamercolor{block title}{fg=GruvDarkred}
 }
-% TODO: GruvDarkyellow
 \AtBeginEnvironment{lemma}{%
-  \setbeamercolor{block title}{fg=yellow}
+  \setbeamercolor{block title}{fg=GruvDarkyellow}
 }
 \AtBeginEnvironment{corollary}{%
   \setbeamercolor{block title}{fg=GruvDarkblue}
 }
-% TODO: GruvDarkorange
 \AtBeginEnvironment{fact}{%
-  \setbeamercolor{block title}{fg=orange}
+  \setbeamercolor{block title}{fg=GruvDarkorange}
 }
-% NOTE: GruvDarkgray?
+
 \AtBeginEnvironment{proof}{%
-  \setbeamercolor{block title}{fg=gray}
+  \setbeamercolor{block title}{fg=GruvDarkgray}
 }
 
 % QED Symbol Definition
