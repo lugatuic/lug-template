@@ -8,9 +8,10 @@
 
 # Description
 
-A Makefile which converts Markdown files into Beamer Slides for ease of use and consistency. Also contains a custom Beamer theme based on "Seville".
+Contains a modified "Seville" Beamer template, "lugatuic".
+In the future, this will additionally contain a Makefile for converting a Markdown file into a LUG slideshow!
 
-If you are a LUG member, feel free to create your own slides in LaTeX with just the .sty file if you want more control over your presentation!
+This is still a work in progress!
 
 # Credits
 
