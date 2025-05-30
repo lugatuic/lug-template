@@ -372,7 +372,7 @@
 % External Link Formatting Code
 % Format: [ICON] [LINK] that is automatically generated from input info :)
 \NewDocumentCommand\email{ o m }{\newcommand\insertemail{\href{mailto:\IfValueTF{#1}{#1}{#2}}{\mbox{{\scriptsize\faEnvelope}\hspace{.5em}\scriptsize #2}}}}
-\NewDocumentCommand\site{ o m }{\newcommand\insertsite{\href{\IfValueTF{#1}{#1}{#2}}{\mbox{{\scriptsize\faHome}\hspace{.5em}\scriptsize #2}}}}
+\NewDocumentCommand\site{ m }{\newcommand\insertsite{\href{https://#1}{\mbox{{\scriptsize\faHome}\hspace{.5em}\scriptsize #1}}}}
 \NewDocumentCommand\mathscinet{ m }{\newcommand\insertmathscinet{\href{#1}{\mbox{{\scriptsize\faUniversity}\hspace{.5em}\scriptsize MathSciNet}}}}
 \NewDocumentCommand\arxiv{ s m }{
   \newcommand\insertarxiv{\href{\IfBooleanTF{#1}{https://arxiv.org/a/#2.html}{#2}}{\mbox{\scriptsize\aiarXiv}\hspace{.5em}\scriptsize \IfBooleanTF{#1}{#2}{arXiv}}}
