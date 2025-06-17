@@ -32,6 +32,7 @@ All fonts and compilers supported by the original Seville theme are also support
 These font choices have the same caveats as they do in the original theme, which can be found [here](https://github.com/FMuro/seville?tab=readme-ov-file#options).
 
 **Color Themes**
+
 The default color scheme is Gruvbox's Dark Theme.
 To use Catpuccin's Frappe theme, use the `catfrap` option.
 
