@@ -5,7 +5,7 @@
 % Designed to provide a nice looking, consistent Beamer theme for lugatuic materials, as the name suggests.
 % You can use this theme as you wish, so long as you follow the rules of the original "Seville" theme license.
 %
-% VERSION: 1.0.0
+% VERSION: 1.0.1
 % 
 % Default Settings
 %   Colors: Gruvbox Dark Theme
@@ -79,6 +79,12 @@
 \newif\if@doXelatex
 \@doXelatexfalse
 \DeclareOptionBeamer{xelatex}{\@doXelatextrue}
+\ProcessOptionsBeamer
+
+% Catpuccin Frappe Color Theme
+\newif\if@doCatFrap
+\@doCatFrapfalse
+\DeclareOptionBeamer{catfrap}{\@doCatFraptrue}
 \ProcessOptionsBeamer
 
 % --- Option Declaration Over --- %
@@ -178,6 +184,7 @@
 
 % Bibliography colors
 % TODO: Add these to demo for sensible colorpicking
+% TODO: Custom Color Stuff here
 \setbeamercolor{bibliography item}{fg=GruvDarkkgray}
 \setbeamercolor*{bibliography entry title}{fg=GruvDarkblack}
 \setbeamercolor*{bibliography entry author}{fg=GruvDarkblack}
@@ -200,6 +207,18 @@
 % NOTE: that RGB values must be between 0 and 255.
 % NOTE: the second argument "{RGB}" MUST be capitalized. "{rgb}" takes arguments between 0 and 1 for some reason. 
 
+% Recommended Colors:
+% - Default Background Color
+% - Focused Background Color
+% - Slide title bar color
+% - White
+% - Blue
+% - Red
+% - Green
+% - Purple
+% - Orange
+% - Yellow
+
 % GruvBox Dark Theme (Default)
 % https://github.com/morhetz/gruvbox?tab=readme-ov-file
 % Prefix: GruvDark
@@ -211,7 +230,7 @@
 \definecolor{GruvDarkdarkgray}{RGB}{60,56,54}
 \definecolor{GruvDarkgray}{RGB}{146,131,116}
 % Defined as "fg0"
-\definecolor{GruvDarkwhite}{RGB}{251,241,199}
+\definecolor{GruvDarktext}{RGB}{251,241,199}
 \definecolor{GruvDarkblue}{RGB}{69,133,136}
 \definecolor{GruvDarkred}{RGB}{204,35,29}
 \definecolor{GruvDarkgreen}{RGB}{152,151,26}
@@ -219,19 +238,65 @@
 \definecolor{GruvDarkorange}{RGB}{254,128,25}
 \definecolor{GruvDarkyellow}{RGB}{250,189,47}
 
+% Catppuccin Frappe (cat-frappe)
+% https://catppuccin.com/palette
+% Prefix: CatFrap
+
+% "Crust"
+\definecolor{CatFrapbg}{RGB}{35,38,52}
+% "Mantle"
+\definecolor{CatFrapblack}{RGB}{41,44,60}
+% "Surface 0"
+\definecolor{CatFrapdarkgray}{RGB}{65,69,89}
+% "Overlay 0"
+\definecolor{CatFrapgray}{RGB}{115,121,148}
+% "Text"
+\definecolor{CatFraptext}{RGB}{198,208,245}
+\definecolor{CatFrapblue}{RGB}{140,170,238}
+\definecolor{CatFrapred}{RGB}{231,130,132}
+\definecolor{CatFrapgreen}{RGB}{166,209,137}
+% "Mauve"
+\definecolor{CatFrappurple}{RGB}{202,158,230}
+% "Peach"
+\definecolor{CatFraporange}{RGB}{239,159,118}
+\definecolor{CatFrapyellow}{RGB}{229,200,144}
+
 %  --- Custom Color Declaration End --- %
 
-% Background Color
-\setbeamercolor{background canvas}{bg=GruvDarkbg}
+% Background Color 
+\if@doCatFrap
+  \setbeamercolor{background canvas}{bg=CatFrapbg}
+  \else
+  \setbeamercolor{background canvas}{bg=GruvDarkbg}
+\fi
 
 % Title Text
-\setbeamercolor{title}{fg=GruvDarkwhite}
+\if@doCatFrap
+  \setbeamercolor{title}{fg=CatFraptext}
+  \else
+  \setbeamercolor{title}{fg=GruvDarktext}
+\fi
+
 % Frame's title. bg determines color of bar, fg determines text color 
-\setbeamercolor*{frametitle}{bg=GruvDarkdarkgray, fg=GruvDarkwhite}
+\if@doCatFrap
+  \setbeamercolor*{frametitle}{bg=CatFrapdarkgray, fg=CatFraptext}
+  \else
+  \setbeamercolor*{frametitle}{bg=GruvDarkdarkgray, fg=GruvDarktext}
+\fi
+
 % Regular Text Color.fg determines text color.
-\setbeamercolor*{normal text}{fg=GruvDarkwhite}
+\if@doCatFrap
+  \setbeamercolor*{normal text}{fg=CatFraptext}
+  \else
+  \setbeamercolor*{normal text}{fg=GruvDarktext}
+\fi
+
 % Alerted text color
-\setbeamercolor*{alerted text}{fg=GruvDarkred}
+\if@doCatFrap
+  \setbeamercolor*{alerted text}{fg=CatFrapred}
+  \else
+  \setbeamercolor*{alerted text}{fg=GruvDarkred}
+\fi
 
 % TODO: Check if this is redunant
 \setbeamercolor{part title}{fg=blue}
@@ -244,28 +309,58 @@
 % fg = the text color
 
 % Default Block
-\setbeamercolor{block title}{bg=GruvDarkblack, fg=GruvDarkblue}
-\setbeamercolor{block body}{bg=GruvDarkblack, fg=GruvDarkwhite}
+\if@doCatFrap
+  \setbeamercolor{block title}{bg=CatFrapblack, fg=CatFrapblue}
+  \setbeamercolor{block body}{bg=CatFrapblack, fg=CatFraptext}
+  \else
+  \setbeamercolor{block title}{bg=GruvDarkblack, fg=GruvDarkblue}
+  \setbeamercolor{block body}{bg=GruvDarkblack, fg=GruvDarktext}
+\fi
 
 % Alerted Block
-\setbeamercolor{block title alerted}{bg=GruvDarkblack, fg=GruvDarkred}
-\setbeamercolor{block body alerted}{bg=GruvDarkblack, fg=GruvDarkwhite}
+\if@doCatFrap
+  \setbeamercolor{block title alerted}{bg=CatFrapblack, fg=CatFrapred}
+  \setbeamercolor{block body alerted}{bg=CatFrapblack, fg=CatFraptext}
+  \else
+  \setbeamercolor{block title alerted}{bg=GruvDarkblack, fg=GruvDarkred}
+  \setbeamercolor{block body alerted}{bg=GruvDarkblack, fg=GruvDarktext}
+\fi
 
 % Example Block
-\setbeamercolor{block title example}{bg=GruvDarkblack, fg=GruvDarkgreen}
-\setbeamercolor{block body example}{bg=GruvDarkblack, fg=GruvDarkwhite}
+\if@doCatFrap
+  \setbeamercolor{block title example}{bg=CatFrapblack, fg=CatFrapgreen}
+  \setbeamercolor{block body example}{bg=CatFrapblack, fg=CatFraptext}
+  \else
+  \setbeamercolor{block title example}{bg=GruvDarkblack, fg=GruvDarkgreen}
+  \setbeamercolor{block body example}{bg=GruvDarkblack, fg=GruvDarktext}
+\fi
 
 % Color of Enumerate Numbers & Itemize Bullets
-\setbeamercolor{enumerate item}{fg=GruvDarkgray}
-\setbeamercolor{enumerate subitem}{fg=GruvDarkgray}
-\setbeamercolor{enumerate subsubitem}{fg=GruvDarkgray}
-\setbeamercolor{itemize item}{fg=GruvDarkgray}
-\setbeamercolor{itemize subitem}{fg=GruvDarkgray}
-\setbeamercolor{itemize subsubitem}{fg=GruvDarkgray}
+\if@doCatFrap
+  \setbeamercolor{enumerate item}{fg=CatFrapgray}
+  \setbeamercolor{enumerate subitem}{fg=CatFrapgray}
+  \setbeamercolor{enumerate subsubitem}{fg=CatFrapgray}
+  \setbeamercolor{itemize item}{fg=CatFrapgray}
+  \setbeamercolor{itemize subitem}{fg=CatFrapgray}
+  \setbeamercolor{itemize subsubitem}{fg=CatFrapgray}
+  \else
+  \setbeamercolor{enumerate item}{fg=GruvDarkgray}
+  \setbeamercolor{enumerate subitem}{fg=GruvDarkgray}
+  \setbeamercolor{enumerate subsubitem}{fg=GruvDarkgray}
+  \setbeamercolor{itemize item}{fg=GruvDarkgray}
+  \setbeamercolor{itemize subitem}{fg=GruvDarkgray}
+  \setbeamercolor{itemize subsubitem}{fg=GruvDarkgray}
+\fi
 
-\setbeamercolor{section number projected}{fg=GruvDarkdarkgray}
-% TOC Section Titles; fg = text color
-\setbeamercolor{section in toc}{fg=GruvDarkwhite}
+\if@doCatFrap
+  \setbeamercolor{section number projected}{fg=CatFrapdarkgray}
+  % TOC Section Titles; fg = text color
+  \setbeamercolor{section in toc}{fg=CatFraptext}
+  \else
+  \setbeamercolor{section number projected}{fg=GruvDarkdarkgray}
+  % TOC Section Titles; fg = text color
+  \setbeamercolor{section in toc}{fg=GruvDarktext}
+\fi
 
 
 \setbeamertemplate{itemize item}{$\bullet$}
@@ -280,6 +375,7 @@
 
 % Math-y Enviroments. It's extra work to remove support that *may* come in handy to someone.
 % It's also not that important to me to change. Feel free to change this if you care about these enviroments though :)
+% TODO: color enviroment option stuff here if someone cares
 \AtBeginEnvironment{theorem}{%
   \setbeamercolor{block title}{fg=GruvDarkred}
 }
@@ -345,15 +441,28 @@
 % /tcb/PROPERTYNAME
 
 % TODO: Fix padding/spacing bug between title & content of blocks
-\tcbsetforeverylayer{
-  fonttitle=\bfseries\itshape,
-  colback=GruvDarkblack,
-  colframe=GruvDarkblack,
-  size=fbox,
-  enhanced,
-  % Colored Bar at side of Block
-  borderline west = {2pt}{-2mm}{tcbcoltitle}
-}
+
+\if@doCatFrap
+  \tcbsetforeverylayer{
+    fonttitle=\bfseries\itshape,
+    colback=CatFrapblack,
+    colframe=CatFrapblack,
+    size=fbox,
+    enhanced,
+    % Colored Bar at side of Block
+    borderline west = {2pt}{-2mm}{tcbcoltitle}
+  }
+  \else
+  \tcbsetforeverylayer{
+    fonttitle=\bfseries\itshape,
+    colback=GruvDarkblack,
+    colframe=GruvDarkblack,
+    size=fbox,
+    enhanced,
+    % Colored Bar at side of Block
+    borderline west = {2pt}{-2mm}{tcbcoltitle}
+  }
+\fi
 
 % Math enviroment stuff
 \NewDocumentEnvironment{proposition}{ o }{%
