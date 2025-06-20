@@ -1,8 +1,18 @@
-TODO:
-- Add support for other terminal color themes
-- Markdown -> Slides via Pandoc
-  - Makefile
-  - Update TODO with instructions
-    - Markdown Instructions
-      - Columns Env in Markdown
-- Make Code snippet colors not ugly
+# LUG Template
+A custom beamer theme and Makefile utility for creating stylistically consistent and pleasing LUG slideshows in LaTeX or mark up languages
+
+### Visuals
+- [ ] Add support for other terminal color themes
+  - [X] Gruvbox Dark
+  - [X] Catpuccin Frappe
+  - [ ] Gruvbox Light
+- [ ] Make Code snippet colors not ugly
+  - [ ] Gruvbox Dark Support
+  - [ ] Catpuccin Frappe support
+
+### Markdown to Beamer Functionality [X]
+- [X] Markdown -> Slides via Pandoc
+  - [X] Makefile
+  - [X] Update TODO with instructions
+    - [X] Markdown Instructions
+  - [X] Org Mode Support
