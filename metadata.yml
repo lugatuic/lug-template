@@ -1,0 +1,6 @@
+---
+institute: Linux Users' Group @ UIC
+header-includes:
+  \usetheme[]{lugatuic}
+  \titlegraphic{\includegraphics[width=25mm]{../assets/lug-logo-invert.png}}
+---
