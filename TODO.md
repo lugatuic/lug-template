@@ -10,7 +10,7 @@ A custom beamer theme and Makefile utility for creating stylistically consistent
   - [ ] Gruvbox Dark Support
   - [ ] Catpuccin Frappe support
 
-### Markdown to Beamer Functionality [X]
+### Markdown to Beamer Functionality
 - [X] Markdown -> Slides via Pandoc
   - [X] Makefile
   - [X] Update TODO with instructions
