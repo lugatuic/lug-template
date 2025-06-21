@@ -70,7 +70,5 @@ right
 
 :::
 ```
-```
-```
 
 Wherein "left" and "right" are the content you want in each column, respectively.
