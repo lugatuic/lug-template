@@ -16,3 +16,6 @@ A custom beamer theme and Makefile utility for creating stylistically consistent
   - [X] Update TODO with instructions
     - [X] Markdown Instructions
   - [X] Org Mode Support
+
+### Documentation
+- [ ] metadata.yml Separate Documentation File
