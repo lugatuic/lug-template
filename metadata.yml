@@ -3,4 +3,7 @@ institute: Linux Users' Group @ UIC
 header-includes:
   \usetheme[]{lugatuic}
   \titlegraphic{\includegraphics[width=25mm]{./assets/lug-logo-invert.png}}
+toc: true
+slide-level: 2
+section-titles: false
 ---
