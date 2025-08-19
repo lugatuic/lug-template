@@ -18,6 +18,17 @@ F. Muro
 
 # Instructions
 
+## Software Dependencies (for markdown -> PDF usage):
+- GNU Make
+- pandoc
+- pdflatex - provided by the texlive package on debian, and other packages on other systems
+  - Sadly, texlive-full, with its relatively large install size, is the smallest of [the umbrella texlive packages in the official debian apt repos](https://wiki.debian.org/Latex) that works. Not everything in that package is necessary, it is very likely that very *little* of it is necessary. The smallest set of packages that supports this on debian 13.0 is `texlive` and `texlive-fonts-extra`.
+The above dependencies can be installed on debian 13.0 with `apt install make pandoc texlive texlive-fonts-extra`. Those particular packages, on that particular distribution, have been verified to work as prerequisites for using this repository to create PDFs from Markdown (as described below).
+
+Other distributions work, and the required packages on them likely have very similar names. If you have specific instructions for different packages, that's another good thing to contribute with a pull-request.
+
+## After Installation:
+
 To simply use the theme, copy the .sty file into the directory of your LaTeX code and insert `\usepackage{lugatuic}` in your preamble. (The preamble is the metadata before your `begin{document}`)
 
 If you have a Markdown document you want to convert into a slideshow, please see the instructions below.
