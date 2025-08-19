@@ -31,7 +31,7 @@ Other distributions work, and the required packages on them likely have very sim
 
 To simply use the theme, copy the .sty file into the directory of your LaTeX code and insert `\usepackage{lugatuic}` in your preamble. (The preamble is the metadata before your `begin{document}`)
 
-If you have a Markdown document you want to convert into a slideshow, please see the instructions below.
+If you have a Markdown document you want to convert into a slideshow, please see [the instructions below](#markdown-to-slides). <!-- That link is a neat trick which Github conspires with Markdown to enable, see https://stackoverflow.com/questions/2822089/how-to-link-to-part-of-the-same-document-in-markdown -->
 
 ## Options
 
