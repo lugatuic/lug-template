@@ -49,13 +49,17 @@ Example:
 
 ## Markdown to Slides
 
-To convert a file from Markdown or Org Mode into a slide deck, just run:
+Your markdown files or Org Mode files should be in the `src/` folder.
 
-`make NAME.pdf`
+To convert all source files in `src/` into pdfs, run `make all`, which puts output pdfs into `out/`.
 
-Wherein "NAME" is the name of your markdown/org file without the extension. For example, if I had a markdown file "example.md", to turn it into a slide deck, I'd run:
+To convert an individual file from Markdown or Org Mode into a slide deck, just run:
 
-`make example.pdf`
+`make out/NAME.pdf`
+
+Wherein "NAME" is the name of your markdown/org file inside `src/`, without the extension. For example, if I had a markdown file "src/example.md", to turn it into a slide deck, I'd run:
+
+`make out/example.pdf`
 
 ### Notable Markdown to Beamer Syntax
 
